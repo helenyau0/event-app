@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import events from '../../apis/events';
 
 class EventList extends React.Component {
@@ -23,7 +25,9 @@ class EventList extends React.Component {
               <div className="image">
                 <img src={event.logo_uri} alt={event.name} />
               </div>
-              <div className="extra">{event.name}</div>
+              <div className="extra">
+                <Link to={`/events/${event.id}`}>{event.name}</Link>
+              </div>
             </div>
           );
         })}
