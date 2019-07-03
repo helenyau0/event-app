@@ -1,25 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { observer, inject } from 'mobx-react';
 
 import events from '../../apis/events';
 
 class EventList extends React.Component {
-  state = { allEvents: [] };
-
   async componentDidMount() {
     try {
       const response = await events.get('/events/?limit=100&offset=0');
-      this.setState({ allEvents: response.data.results });
+      const { EventListStore } = this.props;
+      EventListStore.allEvents = response.data.results;
     } catch (e) {
       throw new Error(e);
     }
   }
-  render() {
-    const { allEvents } = this.state;
 
+  render() {
+    const { EventListStore } = this.props;
     return (
       <div className="ui five cards">
-        {allEvents.map(event => {
+        {EventListStore.allEvents.map(event => {
           return (
             <div className="card" key={event.id}>
               <div className="image">
@@ -36,4 +36,4 @@ class EventList extends React.Component {
   }
 }
 
-export default EventList;
+export default inject('EventListStore')(observer(EventList));
