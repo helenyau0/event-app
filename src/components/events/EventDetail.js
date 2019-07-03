@@ -1,18 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-import events from '../../apis/events';
+import { observer, inject } from 'mobx-react';
 
 class EventDetail extends React.Component {
-  state = { event: [] };
   componentDidMount() {
-    events.get(`/events/${this.props.match.params.id}`).then(res => {
-      this.setState({ event: res.data });
-    });
+    this.props.EventDetailStore.getEvent(this.props.match.params.id);
   }
 
   render() {
-    const { event } = this.state;
+    const event = this.props.EventDetailStore.event;
     const startTime = new Date(event.start_time);
     return (
       <div>
@@ -45,4 +41,4 @@ class EventDetail extends React.Component {
   }
 }
 
-export default EventDetail;
+export default inject('EventDetailStore')(observer(EventDetail));
