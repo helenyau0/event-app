@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import events from '../../apis/events';
 
@@ -6,7 +7,6 @@ class EventDetail extends React.Component {
   state = { event: [] };
   componentDidMount() {
     events.get(`/events/${this.props.match.params.id}`).then(res => {
-      console.log('res', res.data);
       this.setState({ event: res.data });
     });
   }
@@ -35,6 +35,11 @@ class EventDetail extends React.Component {
         {`${startTime}`}
         <br />
         <a href={event.uri}>To Purchase click here!</a>
+        <div>
+          <Link to={`/events/edit/${event.id}`} className="ui button primary">
+            Edit
+          </Link>
+        </div>
       </div>
     );
   }
