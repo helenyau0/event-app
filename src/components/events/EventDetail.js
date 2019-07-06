@@ -9,16 +9,15 @@ class EventDetail extends React.Component {
 
   render() {
     const event = this.props.EventDetailStore.event;
-    const startTime = new Date(event.start_time);
     return (
       <div>
         <img src={`${event.logo_uri}`} alt={`${event.name}`} />
         <br />
         {event.name}
         <br />
-        {`Curated by ${event.organizer ? event.organizer.name : null}`}
+        {`Event by ${event.organizer ? event.organizer.name : 'none'}`}
         <br />
-        {`Category: ${event.category ? event.category.name : null}`}
+        {`Category: ${event.category ? event.category.name : 'none'}`}
         <br />
         {`Max Ticket Price: ${event.max_ticket_price} ${
           event.ticket_price_currency
@@ -28,8 +27,7 @@ class EventDetail extends React.Component {
           event.ticket_price_currency
         }`}
         <br />
-        {`${startTime}`}
-        <br />
+        <div>{event.description_plain}</div>
         <a href={event.uri}>To Purchase click here!</a>
         <div>
           <Link to={`/events/edit/${event.id}`} className="ui button primary">
