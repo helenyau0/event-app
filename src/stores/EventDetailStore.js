@@ -1,5 +1,7 @@
 import { extendObservable } from 'mobx';
+
 import events from '../apis/events';
+import history from '../history';
 
 class EventDetailStore {
   constructor() {
@@ -15,6 +17,7 @@ class EventDetailStore {
 
   editEvent = async (id, formValues) => {
     await events.patch(`/events/${id}`, formValues);
+    history.push(`/events/${id}`);
   };
 }
 
