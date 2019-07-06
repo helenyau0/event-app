@@ -10,8 +10,8 @@ class EventList extends React.Component {
       const response = await events.get('/events/?limit=100&offset=0');
       const { EventListStore } = this.props;
       EventListStore.allEvents = response.data.results;
-    } catch (e) {
-      throw new Error(e);
+    } catch (error) {
+      console.error(error);
     }
   }
 
