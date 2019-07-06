@@ -8,10 +8,13 @@ class EventDetailStore {
     });
   }
 
-  getEvent = id => {
-    return events.get(`/events/${id}`).then(res => {
-      this.event = res.data;
-    });
+  getEvent = async id => {
+    const response = await events.get(`/events/${id}`);
+    this.event = response.data;
+  };
+
+  editEvent = async (id, formValues) => {
+    await events.patch(`/events/${id}`, formValues);
   };
 }
 
