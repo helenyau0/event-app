@@ -11,13 +11,21 @@ class EventDetailStore {
   }
 
   getEvent = async id => {
-    const response = await events.get(`/events/${id}`);
-    this.event = response.data;
+    try {
+      const response = await events.get(`/events/${id}`);
+      this.event = response.data;
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   editEvent = async (id, formValues) => {
-    await events.patch(`/events/${id}`, formValues);
-    history.push(`/events/${id}`);
+    try {
+      await events.patch(`/events/${id}`, formValues);
+      history.push(`/events/${id}`);
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
 
