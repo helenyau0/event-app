@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { observer, inject } from 'mobx-react';
 
 import './Home.css';
+import Card from './Card';
 
 class Home extends React.Component {
   componentDidMount() {
@@ -11,18 +12,7 @@ class Home extends React.Component {
 
   renderEvents = () => {
     const events = this.props.EventListStore.allEvents.slice(0, 6);
-    return events.map(event => {
-      return (
-        <div className="card" key={event.id}>
-          <div className="image">
-            <img src={event.logo_uri} alt={event.name} />
-          </div>
-          <div className="extra">
-            <Link to={`/events/${event.id}`}>{event.name}</Link>
-          </div>
-        </div>
-      );
-    });
+    return <Card events={events} />;
   };
 
   render() {

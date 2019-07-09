@@ -89,7 +89,7 @@ class EventEdit extends React.Component {
               onChange={this.handleChange}
             />
           </div>
-          <button className="ui button" type="submit">
+          <button className="ui primary button" type="submit">
             Submit
           </button>
         </form>
