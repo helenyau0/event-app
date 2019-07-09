@@ -4,6 +4,7 @@ import { observer, inject } from 'mobx-react';
 import ScrollUpButton from 'react-scroll-up-button';
 
 import './EventList.css';
+import Card from '../Card';
 
 class EventList extends React.Component {
   componentDidMount() {
@@ -93,21 +94,8 @@ class EventList extends React.Component {
               </Link>
             )}
           </div>
-          <div className="ui cards">
-            {EventListStore.allEvents.map(event => {
-              return (
-                <div className="card" key={event.id}>
-                  <div className="image">
-                    <img src={event.logo_uri} alt={event.name} />
-                  </div>
-                  <div className="extra">
-                    <Link to={`/events/${event.id}`}>{event.name}</Link>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
         </div>
+        <Card events={EventListStore.allEvents} />
       </div>
     );
   }
