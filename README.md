@@ -14,7 +14,7 @@ $ git clone https://github.com/helenyau0/event-app.git
 $ cd event-app
 # navigates into project folder
 $ npm install
-# will install all packages for project
+# installs all packages for project
 ```
 
 Next find or create a .env file in the root folder of the project then set REACT_APP_URL=base url and REACT_APP_API_KEY=authorization token then save.
