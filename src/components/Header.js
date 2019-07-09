@@ -9,7 +9,7 @@ const Header = () => {
       <Link to="/" className="item event-logo">
         Event App
       </Link>
-      <div className="right menu nav-item">
+      <div className="right menu header-item">
         <p>
           <Link to="/events" className="item">
             Browse Events
