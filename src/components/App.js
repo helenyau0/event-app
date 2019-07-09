@@ -7,6 +7,7 @@ import EventDetail from './events/EventDetail';
 import EventEdit from './events/EventEdit';
 import Header from './Header';
 import Home from './Home';
+import Footer from './Footer';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
             <Route path="/events/:id" exact component={EventDetail} />
             <Route path="/events/edit/:id" exact component={EventEdit} />
           </Switch>
+          <Footer />
         </div>
       </Router>
     </div>

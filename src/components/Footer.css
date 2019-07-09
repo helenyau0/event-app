@@ -1,0 +1,8 @@
+.footer {
+  top: 50px;
+}
+
+.footer-text {
+  display: flex;
+  justify-content: center;
+}

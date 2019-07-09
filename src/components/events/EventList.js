@@ -93,7 +93,7 @@ class EventList extends React.Component {
               </Link>
             )}
           </div>
-          <div className="ui four cards">
+          <div className="ui cards">
             {EventListStore.allEvents.map(event => {
               return (
                 <div className="card" key={event.id}>
