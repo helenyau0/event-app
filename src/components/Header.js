@@ -7,14 +7,12 @@ const Header = () => {
   return (
     <div className="ui secondary pointing menu">
       <Link to="/" className="item event-logo">
-        Event App
+        Events App
       </Link>
       <div className="right menu header-item">
-        <p>
-          <Link to="/events" className="item">
-            Browse Events
-          </Link>
-        </p>
+        <Link to="/events" className="item">
+          Browse Events
+        </Link>
       </div>
     </div>
   );
