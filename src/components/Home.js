@@ -7,7 +7,7 @@ import Card from './Card';
 
 class Home extends React.Component {
   componentDidMount() {
-    this.props.EventListStore.getAllEvents(1);
+    this.props.EventListStore.getEventsByPage(1);
   }
 
   renderEvents = () => {

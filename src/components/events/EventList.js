@@ -11,9 +11,9 @@ class EventList extends React.Component {
     const pageNumber = this.props.location.search.slice(-1);
 
     if (pageNumber <= 3 && pageNumber > 1) {
-      this.props.EventListStore.getAllEvents(pageNumber);
+      this.props.EventListStore.getEventsByPage(pageNumber);
     } else {
-      this.props.EventListStore.getAllEvents(1);
+      this.props.EventListStore.getEventsByPage(1);
     }
   }
 
@@ -31,7 +31,9 @@ class EventList extends React.Component {
               <Link to={`/events?page=${EventListStore.currentPage - 1}`}>
                 <span
                   onClick={() =>
-                    EventListStore.getAllEvents(EventListStore.currentPage - 1)
+                    EventListStore.getEventsByPage(
+                      EventListStore.currentPage - 1
+                    )
                   }
                 >
                   &laquo;
@@ -39,7 +41,7 @@ class EventList extends React.Component {
               </Link>
             ) : (
               <Link to="/events">
-                <span onClick={() => EventListStore.getAllEvents(1)}>
+                <span onClick={() => EventListStore.getEventsByPage(1)}>
                   &laquo;
                 </span>
               </Link>
@@ -53,7 +55,7 @@ class EventList extends React.Component {
                     <Link to={`/events?page=${number}`}>
                       <span
                         className={classes}
-                        onClick={() => EventListStore.getAllEvents(number)}
+                        onClick={() => EventListStore.getEventsByPage(number)}
                       >
                         {number}
                       </span>
@@ -66,7 +68,7 @@ class EventList extends React.Component {
                     <Link to="/events">
                       <span
                         className={classes}
-                        onClick={() => EventListStore.getAllEvents(number)}
+                        onClick={() => EventListStore.getEventsByPage(number)}
                       >
                         {number}
                       </span>
@@ -80,7 +82,9 @@ class EventList extends React.Component {
               <Link to={`/events?page=${EventListStore.currentPage + 1}`}>
                 <span
                   onClick={() =>
-                    EventListStore.getAllEvents(EventListStore.currentPage + 1)
+                    EventListStore.getEventsByPage(
+                      EventListStore.currentPage + 1
+                    )
                   }
                 >
                   &raquo;
@@ -88,7 +92,7 @@ class EventList extends React.Component {
               </Link>
             ) : (
               <Link to={`/events?page=3`}>
-                <span onClick={() => EventListStore.getAllEvents(3)}>
+                <span onClick={() => EventListStore.getEventsByPage(3)}>
                   &raquo;
                 </span>
               </Link>

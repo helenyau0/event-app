@@ -11,7 +11,7 @@ class EventListStore {
     });
   }
 
-  getAllEvents = async page => {
+  getEventsByPage = async page => {
     try {
       const response = await events.get(
         `/events/?limit=100&offset=${(page - 1) * 100}`
