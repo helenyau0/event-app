@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { observer, inject } from 'mobx-react';
+import ScrollUpButton from 'react-scroll-up-button';
 
-import styles from './EventList.module.css';
+import './EventList.css';
 
 class EventList extends React.Component {
   componentDidMount() {
@@ -21,7 +22,10 @@ class EventList extends React.Component {
     return (
       <div>
         <div className="right floated content">
-          <div className={styles.pagination}>
+          <ScrollUpButton
+            style={{ width: '45px', height: '45px', backgroundColor: 'black' }}
+          />
+          <div className="pagination">
             {EventListStore.currentPage - 1 > 1 ? (
               <Link to={`/events?page=${EventListStore.currentPage - 1}`}>
                 <span
@@ -41,7 +45,7 @@ class EventList extends React.Component {
             )}
             {EventListStore.pageCount.map(number => {
               let classes =
-                EventListStore.currentPage === number ? styles.active : '';
+                EventListStore.currentPage === number ? 'active' : '';
               if (number <= EventListStore.pageCount.length && number > 1) {
                 return (
                   <div key={number}>
@@ -89,7 +93,7 @@ class EventList extends React.Component {
               </Link>
             )}
           </div>
-          <div className="ui five cards">
+          <div className="ui four cards">
             {EventListStore.allEvents.map(event => {
               return (
                 <div className="card" key={event.id}>
