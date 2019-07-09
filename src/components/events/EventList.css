@@ -1,5 +1,8 @@
 .pagination {
+  margin-bottom: 25px;
   margin-top: 25px;
+  display: flex;
+  justify-content: center;
 }
 .pagination span {
   cursor: pointer;
@@ -15,4 +18,8 @@
   background-color: #0099ff;
   color: white;
   border: 1px solid #0099ff;
+}
+
+.scroll-up-button {
+  size: 15px;
 }
