@@ -11,6 +11,7 @@ class EventDetail extends React.Component {
     const event = this.props.EventDetailStore.event;
     const startTime = new Date(event.start_time).toLocaleDateString();
     const endTime = new Date(event.finish_time).toLocaleDateString();
+
     return (
       <div>
         <img src={`${event.logo_uri}`} alt={`${event.name}`} />
@@ -24,17 +25,17 @@ class EventDetail extends React.Component {
           Category: {event.category ? event.category.name : 'none'}
         </p>
         <p>
-          Max Ticket Price: {event.max_ticket_price} $
+          Max Ticket Price: {event.max_ticket_price}
           {event.ticket_price_currency}
           <br />
-          Min Ticket Price: {event.min_ticket_price} $
+          Min Ticket Price: {event.min_ticket_price}
           {event.ticket_price_currency}
         </p>
         <p>{event.description_plain}</p>
         <a href={event.uri}>To Purchase click here!</a>
         <div>
           <Link to={`/events/edit/${event.id}`} className="ui button primary">
-            Edit
+            Edit Details
           </Link>
         </div>
       </div>
